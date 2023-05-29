@@ -95,6 +95,7 @@ const removeFromLocalStorage = (item) => {
   const itemsFromStorage = getItemsFromLocalStorage()
   const updatedItemsFromStorage = itemsFromStorage.filter((i) => i !== item)
   localStorage.setItem('items', JSON.stringify(updatedItemsFromStorage))
+  isEdit = false
 }
 
 // Complete the List
