@@ -1,6 +1,7 @@
 const input = document.querySelector('#user-input')
 const inputForm = document.querySelector('#input-form')
 const shoppingList = document.querySelector('.list')
+const filter = document.querySelector('.filter')
 let isEdit = false
 // LocalStorage utilities
 
@@ -118,6 +119,19 @@ const onClickList = (e) => {
   }
 }
 
+const filterItems = (e) => {
+  const input = e.target.value.toLowerCase()
+  const listItems = shoppingList.querySelectorAll('li')
+  listItems.forEach((item) => {
+    if (item.textContent.toLowerCase().indexOf(input) !== -1) {
+      item.style.display = 'flex'
+    } else {
+      item.style.display = 'none'
+    }
+  })
+}
+
 // Event listeners
 inputForm.addEventListener('submit', addItemToList)
 shoppingList.addEventListener('click', onClickList)
+filter.addEventListener('input', filterItems)
